@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./api";
+
+service Getter{
+    rpc GetBooks(BookRequest) returns (BookResponse){}
+    rpc GetAuthor(AuthorRequest) returns (AuthorResponse){}
+}
+
+message BookRequest{
+  string author = 1;
+}
+message BookResponse{
+  repeated string books = 1;
+}
+
+message AuthorRequest{
+  string book = 1;
+}
+message AuthorResponse{
+  string author = 1;
+}
+
